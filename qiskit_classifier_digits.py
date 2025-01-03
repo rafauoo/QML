@@ -21,7 +21,7 @@ y = digits.target
 X = MinMaxScaler().fit_transform(X)
 
 # Redukcja wymiarów z 64 do 8 przy pomocy PCA
-pca = PCA(n_components=16)
+pca = PCA(n_components=4)
 X_reduced = pca.fit_transform(X)
 
 # Podział na zbiory treningowy i testowy
@@ -32,7 +32,7 @@ optimizer = COBYLA(maxiter=5)
 sampler = Sampler()
 objective_func_vals = []
 # Mapowanie cech przy pomocy ZZFeatureMap (używamy 8 kubitów, więc zakodujemy 8 cech)
-feature_map = ZZFeatureMap(feature_dimension=16, reps=2)  # Zmiana liczby kubitów na 8
+feature_map = ZZFeatureMap(feature_dimension=4, reps=2)  # Zmiana liczby kubitów na 8
 
 # Tworzenie ansatzu
 ansatz = RealAmplitudes(num_qubits=16, reps=2)
